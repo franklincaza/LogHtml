@@ -1,15 +1,8 @@
-from flask import Flask, flash, redirect, render_template, request, session, url_for,jsonify
-from models import models  
-import config 
-from datetime import datetime
-import logging
+from flask import Flask, render_template
 import pandas as pd
-import log
-from sqlalchemy.exc import IntegrityError
-from flask_mail import Mail, Message
-import os
-from itsdangerous import URLSafeTimedSerializer
+from datetime import datetime
 
+app = Flask(__name__)
 
 @app.route("/log")  
 def log():
@@ -82,3 +75,6 @@ def log():
     print("Archivo HTML con Bootstrap y DataTables generado correctamente.")
 
     return render_template("log.html")
+
+if __name__ == '__main__':
+    app.run(debug=True)
